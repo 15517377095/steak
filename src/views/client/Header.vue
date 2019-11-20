@@ -100,7 +100,7 @@
                                     <i id="nav_move_more_button" class="fas fa-bars" @click="toggleMoreMenu('show')"></i>
                                 </div>
                                 <div id="nav_move_more_menu" class="nav_move_more_menu_hidden">
-                                    <div id="nav_move_more_menu_bg"></div>
+                                    <div id="nav_move_more_menu_bg" @click="toggleMoreMenu('hidden')"></div>
                                     <div id="nav_move_more_menu_content">
                                         <div class="container-fluid">
                                             <div class="row">
@@ -115,36 +115,36 @@
                                             </div>
                                             <div class="row">
                                                 <div id="nav_move_more_menu_items" class="col">
-                                                    <a href="#" class="row">
+                                                    <router-link to="/" class="row">
                                                         <div class="col-auto font_oswaldlight">我的商店</div>
                                                         <div class="col-auto ml-auto font_oswaldlight">
                                                             <i class="fas fa-chevron-right"></i>
                                                         </div>
-                                                    </a>
-                                                    <a href="#" class="row">
+                                                    </router-link>
+                                                    <router-link to="/" class="row">
                                                         <div class="col-auto font_oswaldlight">游戏</div>
                                                         <div class="col-auto ml-auto font_oswaldlight">
                                                             <i class="fas fa-chevron-right"></i>
                                                         </div>
-                                                    </a>
-                                                    <a href="#" class="row">
+                                                    </router-link>
+                                                    <router-link to="/" class="row">
                                                         <div class="col-auto font_oswaldlight">硬件</div>
                                                         <div class="col-auto ml-auto font_oswaldlight">
                                                             <i class="fas fa-chevron-right"></i>
                                                         </div>
-                                                    </a>
-                                                    <a href="#" class="row">
+                                                    </router-link>
+                                                    <router-link to="/new" class="row">
                                                         <div class="col-auto font_oswaldlight">新闻</div>
                                                         <div class="col-auto ml-auto font_oswaldlight">
                                                             <i class="fas fa-chevron-right"></i>
                                                         </div>
-                                                    </a>
-                                                    <a href="#" class="row">
+                                                    </router-link>
+                                                    <router-link to="/about" class="row">
                                                         <div class="col-auto font_oswaldlight">关于</div>
                                                         <div class="col-auto ml-auto font_oswaldlight">
                                                             <i class="fas fa-chevron-right"></i>
                                                         </div>
-                                                    </a>
+                                                    </router-link>
                                                 </div>
                                             </div>
                                             <div class="row" id="nav_move_more_menu_share">
@@ -197,7 +197,6 @@
                 </div>
             </div>
         </div>
-        <div style="height:1000px;width:50px" />
     </div>
 </template>
 
@@ -233,6 +232,7 @@ export default {
         },
         toggleMoreMenu(type){
             var item=$("#nav_move_more_menu");
+            item.stop(true,true);
             if(type == "show"){
                 item.switchClass("nav_move_more_menu_hidden","nav_move_more_menu_show",800);
             }else{
