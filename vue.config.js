@@ -46,8 +46,8 @@ module.exports = {
   parallel: require('os').cpus().length > 1,
   devServer: {
       open: true,
-      host: 'localhost',
-      port: 8080,
+      // host: 'localhost',
+      // port: 8080,
       https: false,
       hotOnly: false,
       proxy: {

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import ClientIndex from '../views/client/Index.vue'
+import ClientList from '../views/client/List.vue'
 
 Vue.use(VueRouter)
 
@@ -9,6 +10,11 @@ const routes = [
     path: '/',
     name: 'clientIndex',
     component: ClientIndex
+  },
+  {
+    path: '/list',
+    name: 'clientList',
+    component: ClientList
   }
 ]
 

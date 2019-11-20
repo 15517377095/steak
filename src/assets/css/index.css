@@ -26,7 +26,7 @@
 #header_scroll_conBtn{position:absolute;top:70%;left:86%;color:#fff;font-size:40px;margin-top:140px;}
 
 .new_games_item{box-shadow:inset 0 50px 80px #000;display:flex;flex-direction:column-reverse;padding:5%;color:#fff;transition:background-size 0.3s,box-shadow 0.3s;position:relative;margin:14px 0;border-radius:3px;background-position:center center !important;}
-.new_games_item:hover{text-decoration: none;box-shadow:0 20px 60px #ff7a219c inset,0 0 30px #656565;background-size:auto 110% !important;}
+.new_games_item:hover{text-decoration: none;box-shadow:0 0 60px #ff7a219c inset,0 0 30px #656565;background-size:auto 110% !important;}
 @media screen and (max-width:575px) {  /*xs*/
     .new_games_item{height:230px;background-size:auto 100% !important;}
 }
