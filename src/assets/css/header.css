@@ -1,0 +1,41 @@
+/*移动导航栏*/
+#nav_move_main{height:140px;background:#090a14;box-shadow:0 5px 20px #090a14;z-index:1;}
+#nav_move_before,#nav_move_after{z-index:1;}
+#nav_move_main_logo{line-height:140px;padding:0 20px 0 10px;}
+#nav_move_main_top{height:54px;line-height:54px;color:#727489;font-size:14px;padding-left:30px;}
+#nav_move_main_top_right{white-space:nowrap;overflow:hidden;}
+#nav_move_main_bottom{height:86px;line-height:85px;}
+#nav_move_main_bottom_navbar{list-style:none;margin-left:-30px;}
+#nav_move_main_bottom_navbar > li{margin:0 15px 0 15px;display:inline-block;font-size:16px;}
+#nav_move_main_bottom_navbar > li .navbar_item_title{color:#727489;}
+#nav_move_main_bottom_navbar > li:hover{border-top:2px solid #ff7a21;margin-top:-2px;}
+#nav_move_main_bottom_navbar > li .navbar_item_title{transition:text-shadow 0.3s;}
+#nav_move_main_bottom_navbar > li:hover .navbar_item_title{text-shadow:0 0 30px #ff7a21,0 0 30px #ff7a21;color:#ff7a21;text-decoration:none;}
+#nav_move_main_bottom_share a:hover{text-decoration:none;}
+#nav_move_more_button{display:inline-block;height:40px;line-height:40px;margin-top:23px;color:#ff7a21;font-size:25px;}
+#nav_move_more_button:hover{cursor:pointer;}
+#nav_move_more_menu{position:fixed;top:0;height:100%;}
+#nav_move_more_menu_bg{width:100%;height:100%;background:#ff7a21;opacity:0.7;}
+#nav_move_more_menu_content{position:relative;top:-100%;margin-left:auto;height:100%;width:300px;background:#1E1E1E;color:#fff;overflow:auto;}
+#nav_move_more_menu_close{line-height:40px;text-align:right;padding-right:20px;font-size:22px;}
+#nav_move_more_menu_logo{padding-bottom:20px;margin-left:-10px;}
+#nav_move_more_menu_items{line-height:45px;font-size:16px;}
+#nav_move_more_menu_items a{transition:color 0.2s,font-size 0.2s,line-height 0.2s;color:#fff;border-top:1px solid #373737;}
+#nav_move_more_menu_items a:hover{border-left:3px solid #ff4411;color:#ff7a21;text-decoration:none;font-size:17px;line-height:48px;}
+#nav_move_more_menu_share{margin-left:0px;}
+#nav_move_more_menu_share a{margin-left:0px;margin-right:8px;}
+.navbar_item_active{text-shadow:0 0 30px #ff7a21,0 0 30px #ff7a21;border-top:2px solid #ff7a21;}
+.navbar_item_active .navbar_item_title{color:#ff7a21 !important;}
+.navbar_item_active div{text-shadow:none;}
+.navbar_item_more{line-height:30px;}
+.navbar_item_more a{color:#1E1E1E;}
+
+/*固定导航栏*/
+#nav_fixed{position:fixed;top:0;left:0;z-index:2;height:60px;width:100%;background:#202020;}
+#nav_fixed_logo{margin-top:7px;}
+#nav_fixed_shop{color:#fff;line-height:60px;font-size:20px;}
+#nav_fixed_more_button{color:#fff;line-height:60px;font-size:22px;padding-right:8px;}
+
+/*更多菜单*/
+.nav_move_more_menu_hidden{left:100%;width:0%;}
+.nav_move_more_menu_show{left:0%;width:100%;}

@@ -1,0 +1,51 @@
+/*服务器字体*/
+/*英文*/
+@font-face{font-family:"oswaldlight";src:url("../webfonts/oswald.light.ttf");} 
+@font-face{font-family:"oswaldregular";src:url("../webfonts/oswald.regular.ttf");} 
+@font-face{font-family:"oswaldbold";src:url("../webfonts/oswald.bold.ttf");}
+/*图标(free) By Awesome https://fontawesome.com/ */
+/*@font-face in css/awesomeFontAll.min.css */
+
+/*全局*/
+*{font-family:"oswaldregular","Microsoft YaHei";}
+body{background:#eef7ff;}
+
+/*图形*/
+/*三角形*/
+.trTriangle{width:0;height:0;border-left:50px solid transparent;border-top:140px solid #090a14;}
+.tlTriangle{width:0;height:0;border-right:50px solid transparent;border-top:140px solid #090a14;}
+
+/*快捷样式*/
+/*border*/
+.br{border-right:1px solid #22232c;}
+.bb{border-bottom:1px solid #22232c;}
+/*行内空白符*/
+.space-5{padding-right:5px;}
+.space-20{padding-right:20px;}
+/*鼠标形状*/
+.cur-d{cursor:default;}
+.cur-p{cursor:pointer;}
+/*透明度*/
+.opa-1{opacity:1;}
+.opa-0{opacity:0;}
+/*字体*/
+.font_oswaldlight{font-family:"oswaldlight";}
+/*定位*/
+.p-abs{position:absolute;}
+
+/*游戏链接按钮*/
+.game_button{display:inline-block;transition:box-shadow 0.2s;width:166px;height:56px;background:#ff7a21;border:0;font-size:20px;color:#fff !important;text-align:center;line-height:56px;margin-top:10px;}
+.game_button:hover{box-shadow:4px 3px 10px #ff7a21;text-decoration:none;}
+
+/*联系信息链接*/
+.contact_link_title{color:#727489;}
+.contact_link{color:#727489;transition:color 0.3s;}
+.contact_link:hover{color:#ff7a21;}
+
+/*分享按钮*/
+.share-logo{margin-right:2px;transition:box-shadow 0.3s,color 0.3s;display:inline-block;width:40px;height:40px;border-radius:100%;background:#000;margin-top:23px;line-height:40px;text-align:center;color:#fff;font-size:17px;}
+.share-logo:hover{color:#ff7a21;box-shadow:0 0 30px #ff7a21;}
+
+/*弹出式列表*/
+.dropdown-item{color:#727489;line-height:26px;font-size:16px;}
+.dropdown-title{font-size:14px;color:#ff7a21;margin-left:1.5rem;}
