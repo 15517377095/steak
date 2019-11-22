@@ -3,4 +3,41 @@
 .seetype-title-b{color:#fff;font-size:40px;text-shadow:1px 1px 5px #333;}
 .seetype-title-s{color:#ccc;font-size:18px;font-weight:lighter;}
 
-.pattern{background:url('../images/pattern.png');height:80px;background-size:auto 80px;}
+.pattern{background:url('../images/pattern.png');height:40px;background-size:auto 40px;}
+
+#carouselExampleCaptions{height:340px;margin-bottom:40px;margin-top:30px;}
+.carousel-item-imgbox{height:340px;width:100%;}
+@media screen and (max-width:576px) {  /*xs*/
+    #carouselExampleCaptions{height:180px;}
+    .carousel-item-imgbox{height:180px;}
+}
+@media screen and (min-width:577px) and (max-width:767px) {  /*sm*/
+    #carouselExampleCaptions{height:240px;}
+    .carousel-item-imgbox{height:240px;}
+}
+@media screen and (min-width:768px) and (max-width:991px) {  /*md*/
+    #carouselExampleCaptions{height:280px;}
+    .carousel-item-imgbox{height:280px;}
+}
+
+.list-title{font-size:30px;}
+
+.item{transition:background 0.2s;width:100%;background:#1C2939;border-radius:2px;box-shadow:0 0 3px #1C2939;margin:20px 0;}
+.item:hover{text-decoration:none;background:rgba(28, 41, 57, 0.842);}
+.item-img img{width:200px;}
+.item-content{display:flex;flex-direction:column;color:#fff;justify-content:space-around;padding:10px 0;}
+.item-content span:nth-child(1){font-weight:bold;font-size:18px;}
+.item-content span:nth-child(2){font-size:12px;}
+.item-content span:nth-child(3){width:60px;transition:background 0.2s;font-size:11px;color:#eee;border:1px solid #eee;padding:2px;text-align:center;border-radius:2px;background:rgba(255,255,255,0.2);}
+.item-content span:nth-child(3):hover{background:rgba(255,255,255,0);}
+.item-price{color:#fff;font-size:20px;color:#ff7a21;display:flex;flex-direction:column;justify-content:center;padding-right:30px;} 
+
+.types-list{margin-bottom:20px;color:#fff;padding:20px;margin-top:20px;background:#1C2939;border-radius:2px;box-shadow:0 0 3px #1C2939;}
+.types-list-item{display:inline-block;width:100%;transition:background 0.2s;margin-bottom:10px;color:#eee;border:1px solid #eee;padding:2px;text-align:center;border-radius:2px;background:rgba(255,255,255,0.2);}
+.types-list-item:hover{text-decoration:none;background:rgba(255,255,255,0);}
+
+@media screen and (max-width:991px) {  /*<=md*/
+    .types-list-item{width:48%;margin:1%;}
+}
+
+.nogames{font-size:30px;color:#aaa;display:flex;width:100%;height:100%;justify-content:center;align-items:center;}

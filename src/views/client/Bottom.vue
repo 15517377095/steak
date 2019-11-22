@@ -59,7 +59,7 @@
         </div>
         <div class="row">
             <div class="col pl-sm-5" id="bottom_logo">
-                <img src="img/logo.png" width="160px" />
+                <img src="../../assets/images/logo.png" width="160px" />
             </div>
         </div>
         <div class="row">

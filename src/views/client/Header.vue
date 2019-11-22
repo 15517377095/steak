@@ -31,15 +31,15 @@
                                             </router-link>
                                         </li>
                                         <li @mouseenter="toggleNavbarItemMore" @mouseleave="toggleNavbarItemMore">
-                                            <router-link class="navbar_item_title" to="/type/all" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <router-link class="navbar_item_title" to="/list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span>游戏</span>
                                             </router-link>
                                             <div class="navbar_item_more dropdown-menu">
-                                                <router-link class="dropdown-item" to="/type/free">免费游玩</router-link>
-                                                <router-link class="dropdown-item" to="/type/new">抢先体验</router-link>
+                                                <router-link class="dropdown-item" to="/list/free">免费游玩</router-link>
+                                                <router-link class="dropdown-item" to="/list/new">抢先体验</router-link>
                                                 <div class="dropdown-divider"></div>
                                                 <div class="dropdown-title">按类型浏览：</div>
-                                                <router-link v-for="gameType in gameTypes" :key="gameType.id" class="dropdown-item" :to="'/type/' + gameType.id">
+                                                <router-link v-for="gameType in gameTypes" :key="gameType.id" class="dropdown-item" :to="'/list/' + gameType.id">
                                                     {{ gameType.name }}
                                                 </router-link>
                                             </div>
@@ -121,7 +121,7 @@
                                                             <i class="fas fa-chevron-right"></i>
                                                         </div>
                                                     </router-link>
-                                                    <router-link to="/" class="row">
+                                                    <router-link to="/list" class="row">
                                                         <div class="col-auto font_oswaldlight">游戏</div>
                                                         <div class="col-auto ml-auto font_oswaldlight">
                                                             <i class="fas fa-chevron-right"></i>

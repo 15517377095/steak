@@ -49,3 +49,6 @@ body{background:#eef7ff;}
 /*弹出式列表*/
 .dropdown-item{color:#727489;line-height:26px;font-size:16px;}
 .dropdown-title{font-size:14px;color:#ff7a21;margin-left:1.5rem;}
+
+.carousel-caption, .carousel-control-next, .carousel-control-prev{z-index:0 !important;}
+.carousel-indicators{z-index: 1 !important;}

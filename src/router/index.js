@@ -15,6 +15,11 @@ const routes = [
     path: '/list',
     name: 'clientList',
     component: ClientList
+  },
+  {
+    path: '/list*',
+    name: 'clientList',
+    component: ClientList
   }
 ]
 

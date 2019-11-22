@@ -3,19 +3,80 @@
         <Header />
         <div class="container-fluid" id="seetype">
             <div class="row">
-                <div class="col-10 offset-1 seetype-title">
-                    <span class="seetype-title-b">正在浏览动作类型的游戏</span>
-                    <span class="seetype-title-s">浏览最新、最热销和打折的 动作 产品</span>
+                <div class="col-md-10 offset-md-1 seetype-title">
+                    <span class="seetype-title-b">正在浏览{{ typeName }}类型的游戏</span>
+                    <span class="seetype-title-s">浏览最新、最热销和打折的 {{ typeName }} 产品</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-10 offset-md-1 bd-example">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                        <div :class="index == 0 ? 'carousel-item active' : 'carousel-item'" v-for="(headerScrollGame,index) in headerScrollGames" :key="headerScrollGame.id">
+                            <div class="carousel-item-imgbox">
+                                <img :src="headerScrollGame.imgs" class="d-block w-100">
+                            </div>
+                            <div class="carousel-caption">
+                                <h5>{{ headerScrollGame.name }}</h5>
+                                <p>{{ headerScrollGame.introduction }} . . .</p>
+                            </div>
+                        </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="row pattern"></div>
         </div>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 offset-0 offset-md-1">
+                    <span class="list-title">搜索结果</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 col-lg-8 offset-0 offset-md-1">
+                    <span class="nogames" v-if="games == ''"><i class="fas fa-frown mr-2"></i>该分类暂无内容</span>
+                    <router-link :to="'/game/' + game.id" class="item row" v-for="game in games" :key="game.id">
+                        <div class="col-auto pl-0 item-img">
+                            <img :src="game.imgs" />
+                        </div>
+                        <div class="col-3 item-content">
+                            <span>{{ game.name }}</span>
+                            <span>{{ /^[0-9]+-[0-9]+-[0-9]+/ .exec(game.releasedate)[0] }} 上线</span>
+                            <span>{{ game.type.name }}</span>
+                        </div>
+                        <div class="col-auto pl-0 pr-3 ml-auto item-price">
+                            ￥ {{ game.money }}
+                        </div>
+                    </router-link>
+                </div>
+                <div class="col-md-10 col-lg-2 offset-0 offset-md-1 offset-lg-0">
+                    <div class="types-list">
+                        <router-link to="/list/free" class="types-list-item">免费游玩</router-link>
+                        <router-link to="/list/new" class="types-list-item">抢先体验</router-link>
+                        <router-link to="/list" class="types-list-item">所有类型</router-link>
+                        <router-link :to="'/list/' + gameType.id" class="types-list-item" v-for="gameType in gameTypes" :key="gameType.id">
+                            {{ gameType.name }}
+                        </router-link>
+                    </div>
+                </div>
+            </div>
+        </div>
         <Bottom />
     </div>
 </template>
@@ -28,6 +89,112 @@ export default {
     components: {
         Header,
         Bottom
+    },
+    data(){
+        return {
+            type: '',   //类型id
+            typeName: '',   //类型名称
+            headerScrollGames: [],
+            games: [],
+            gameTypes: []
+        }
+    },
+    methods:{
+        getHeaderScrollGames(){
+            this.$http({
+                methods: 'post',
+                url: '/api/game/getIndexScrollInfo'
+            }).then((response) => {
+                this.headerScrollGames=response.data;
+            })
+        },
+        getGames(type){
+            switch(type){
+                case 'free':
+                    this.$http({
+                        methods: 'post',
+                        url: '/api/game/getAllFree'
+                    }).then((response) => {
+                        this.games=response.data;
+                    })
+                    break;
+                case 'new':
+                    this.$http({
+                        methods: 'post',
+                        url: '/api/game/getAllOrderByNew'
+                    }).then((response) => {
+                        this.games=response.data;
+                    })
+                    break;
+                case 'all':
+                    this.$http({
+                        methods: 'post',
+                        url: '/api/game/getAll'
+                    }).then((response) => {
+                        this.games=response.data;
+                    })
+                    break;
+                default:
+                    this.$http({
+                        methods: 'post',
+                        params: {
+                            type: this.type
+                        },
+                        url: '/api/game/getByType'
+                    }).then((response) => {
+                        this.games=response.data;
+                    })
+            }
+        },
+        getTypeAndGames(){
+            var path=this.$route.path;
+            var reg = /[0-9]+/    // 匹配id类型
+            var regFree = /^\/list\/free/i   //匹配free类型
+            var regNew = /^\/list\/new/i   //匹配new类型
+            if(path.search(reg) >= 0){  //id
+                this.type=path.match(reg)[0];
+                this.getTypeName();
+                this.getGames();
+            }else if(path.search(regFree) >= 0){    //free
+                this.typeName='免费';
+                this.getGames('free');
+            }else if(path.search(regNew) >= 0){ //new
+                this.typeName='抢先体验';
+                this.getGames('new');
+            }else{  //all
+                this.typeName='所有';
+                this.getGames('all');
+            }
+        },
+        getTypeName(){
+            this.$http({
+                methods: 'post',
+                params:{
+                    id: this.type
+                },
+                url: '/api/type/getById'
+            }).then((response) => {
+                this.typeName=response.data.name;
+            })
+        },
+        getGameTypes(){
+            this.$http({
+                methods: 'post',
+                url: '/api/type/getAll'
+            }).then((response) => {
+                this.gameTypes=response.data
+            })
+        }
+    },
+    mounted(){
+        this.getTypeAndGames();
+        this.getHeaderScrollGames();
+        this.getGameTypes();
+    },
+    watch:{
+        $route(from,to){
+            this.getTypeAndGames();
+        }
     }
 }
 </script>
