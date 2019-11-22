@@ -35,7 +35,7 @@
             </div>
             <div id="new_games_items"  class="row">
                 <div :class="index==0||index==5 ? 'col-12 col-md-6 col-lg-'+6 : 'col-12 col-md-6 col-lg-'+3" v-for="(newGame,index) in newGames" :key="newGame.id">
-                    <router-link to="/game" :style="'background:url(' + newGame.imgs + ')'" class="new_games_item cur-p">
+                    <router-link :to="'/game/' + newGame.id" :style="'background:url(' + newGame.imgs + ')'" class="new_games_item cur-p">
                         <div class="row">
                             <div class="col-12 new_games_item_name">
                                 {{ newGame.name }}

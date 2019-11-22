@@ -12,14 +12,10 @@
                 <div class="col-12 col-md-10 offset-md-1 bd-example">
                     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+                            <li data-target="#carouselExampleIndicators" :class="index == 0 ? 'active' : ''" v-for="(headerScrollGame,index) in headerScrollGames" :key="index" :data-slide-to="index"></li>
                         </ol>
                         <div class="carousel-inner">
-                        <div :class="index == 0 ? 'carousel-item active' : 'carousel-item'" v-for="(headerScrollGame,index) in headerScrollGames" :key="headerScrollGame.id">
+                        <router-link :to="'/game/' + headerScrollGame.id" :class="index == 0 ? 'carousel-item active' : 'carousel-item'" v-for="(headerScrollGame,index) in headerScrollGames" :key="headerScrollGame.id">
                             <div class="carousel-item-imgbox">
                                 <img :src="headerScrollGame.imgs" class="d-block w-100">
                             </div>
@@ -27,7 +23,7 @@
                                 <h5>{{ headerScrollGame.name }}</h5>
                                 <p>{{ headerScrollGame.introduction }} . . .</p>
                             </div>
-                        </div>
+                        </router-link>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

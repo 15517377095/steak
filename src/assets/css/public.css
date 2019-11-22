@@ -52,3 +52,8 @@ body{background:#eef7ff;}
 
 .carousel-caption, .carousel-control-next, .carousel-control-prev{z-index:0 !important;}
 .carousel-indicators{z-index: 1 !important;}
+
+body::-webkit-scrollbar {width: 10px;height: 1px;}
+body::-webkit-scrollbar-thumb {background: #aaa;}
+body::-webkit-scrollbar-thumb:hover {background: #888;}
+body::-webkit-scrollbar-track {background: #EDEDED;}

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import ClientIndex from '../views/client/Index.vue'
 import ClientList from '../views/client/List.vue'
+import ClientGame from '../views/client/Game.vue'
 
 Vue.use(VueRouter)
 
@@ -12,14 +13,14 @@ const routes = [
     component: ClientIndex
   },
   {
-    path: '/list',
+    path: '/list*',
     name: 'clientList',
     component: ClientList
   },
   {
-    path: '/list*',
-    name: 'clientList',
-    component: ClientList
+    path: '/game/*',
+    name: 'clientGame',
+    component: ClientGame
   }
 ]
 

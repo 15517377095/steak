@@ -1,0 +1,42 @@
+#test-editormd-view img{margin:10px 0;}
+
+#top_bg{box-shadow:0 2px 10px #aaa;position:relative;top:-140px;margin-bottom:-140px;height:300px;background:url(../../assets/images/new_top_bg.jpg);background-position:center center;background-size:100% auto;}
+#top_img{transition:background-size 0.2s,margin 0.2s,width 0.2s,height 0.2s;width:105px;height:150px;margin:20px 0 50px 0;box-shadow:0 0 12px #666;border-radius:3px;background-size:auto 120% !important;background-position:center center !important;}
+#top_img:hover{background-size:auto 100% !important;width:125px;height:160px;margin:15px -10px 45px -10px;}
+#top_nav_type{font-size:14px;color:#eee;font-weight:bold;}
+#top_nav_fenge{font-size:12px;color:#ddd;font-weight:bolder;padding:0 3px;}
+#top_nav_name{font-size:14px;color:#ddd;}
+#top_name{font-size:28px;color:#fff;font-weight:bold;line-height:100px;}
+#top_nav{position:relative;top:-140px;margin-bottom:-140px;}
+
+#main{margin-bottom:50px;}
+#main_imgs{width:100%;white-space:nowrap;font-size:0;overflow:hidden;border-radius:2px;}
+#main_imgs img{width:100%;}
+#main_game_message{width:100%;background:#fff;padding:27px 40px !important;border-radius:2px;box-shadow:2px 0 6px #ddd;}
+
+.s_message div{margin-bottom:3px;line-height:32px;font-size:13px;border-radius:2px;white-space:nowrap;overflow:hidden;}
+.s_message div:nth-child(1){margin-right:3px;margin-left:-3px;background:#eee;color:#666;text-align:center;}
+.s_message div:nth-child(2){background:#f6f6f6;color:#888;text-align:left;}
+
+.join_shop_xl{bottom:46px;}
+.game_price_xl{bottom:126px;}
+#join_shop{transition:background-color 0.3s;background:#FFCA28;border-radius:3px;text-align:center;margin-left:-3px;padding:8px 0;}
+#join_shop:hover{background:#eebc26;}
+#join_shop > a{display:inline-block;line-height:30px;font-size:20px;color:#000;font-weight:bolder;}
+#join_shop > a:hover{text-decoration:none;}
+#join_shop input{line-height:50px;}
+#join_shop span{color:#444;font-size:11px;padding-left:3px;}
+#join_shop span a{padding-left:3px;color:#444;text-decoration:underline;}
+#game_price{color:#666;font-size:14px;margin:30px 0 10px -3px;}
+
+.title{font-size:22px;margin-bottom:10px;color:#444;}
+#test-editormd-view{background:#fff;border-radius:3px;box-shadow:0 0 12px #ddd;margin:0 0 40px 0;}
+
+.info_card{background:#fff;border-radius:3px;box-shadow:0 0 12px #ddd;padding:10px 26px 8px 30px;margin-bottom:20px;}
+#main_game_Introduction{font-size:14px;color:#666;padding:10px 0;}
+@media screen and (min-width:1200px) {  /*>md*/
+    #main_game_Introduction{height:28%;overflow:auto;}
+}
+
+
+.p-abs{position: absolute;}
