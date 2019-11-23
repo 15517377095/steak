@@ -80,17 +80,17 @@
                                     </ul>
                                 </div>
                                 <div id="nav_move_main_bottom_share" class="col-auto d-none d-sm-block ml-auto cur-d">
-                                    <a href="#">
+                                    <a href="#" data-toggle="modal" data-target="#exampleModal">
                                         <span class="share-logo">
                                             <i class="fab fa-qq"></i>
                                         </span>
                                     </a>
-                                    <a href="#">
+                                    <a href="#" data-toggle="modal" data-target="#exampleModal">
                                         <span class="share-logo">
                                             <i class="fab fa-weixin"></i>
                                         </span>
                                     </a>
-                                    <a href="#">
+                                    <a href="#" data-toggle="modal" data-target="#exampleModal">
                                         <span class="share-logo">
                                             <i class="fab fa-youtube"></i>
                                         </span>
@@ -148,27 +148,27 @@
                                                 </div>
                                             </div>
                                             <div class="row" id="nav_move_more_menu_share">
-                                                <a href="#">
+                                                <a href="#" data-toggle="modal" data-target="#exampleModal">
                                                     <span class="share-logo">
                                                         <i class="fab fa-weixin"></i>
                                                     </span>
                                                 </a>
-                                                <a href="#">
+                                                <a href="#" data-toggle="modal" data-target="#exampleModal">
                                                     <span class="share-logo">
                                                         <i class="fab fa-qq"></i>
                                                     </span>
                                                 </a>
-                                                <a href="#">
+                                                <a href="#" data-toggle="modal" data-target="#exampleModal">
                                                     <span class="share-logo">
                                                         <i class="fab fa-zhihu"></i>
                                                     </span>
                                                 </a>
-                                                <a href="#">
+                                                <a href="#" data-toggle="modal" data-target="#exampleModal">
                                                     <span class="share-logo">
                                                         <i class="fab fa-youtube"></i>
                                                     </span>
                                                 </a>
-                                                <a href="#">
+                                                <a href="#" data-toggle="modal" data-target="#exampleModal">
                                                     <span class="share-logo">
                                                         <i class="fab fa-steam-symbol"></i>
                                                     </span>
@@ -196,6 +196,22 @@
                     <i class="fas fa-bars" id="nav_fixed_more_button" @click="toggleMoreMenu('show')"></i>
                 </div>
             </div>
+        </div>
+        <!-- 分享模态框 -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">分享 Steak</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                功能开发中 . . .
+            </div>
+            </div>
+        </div>
         </div>
     </div>
 </template>

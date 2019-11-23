@@ -15,9 +15,9 @@
                         <router-link to="/news">新闻</router-link>
                     </div>
                     <div class="col-6 col-sm-12 col-xl-6">
-                        <router-link to="/type/all">游戏</router-link><br/>
-                        <router-link to="/type/free">免费游玩</router-link><br/>
-                        <router-link to="/type/new">抢先体验</router-link>
+                        <router-link to="/list">游戏</router-link><br/>
+                        <router-link to="/list/free">免费游玩</router-link><br/>
+                        <router-link to="/list/new">抢先体验</router-link>
                     </div>
                 </div>
             </div>

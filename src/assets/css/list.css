@@ -1,4 +1,4 @@
-#seetype{background:url('../images/list_bg.jpg');margin-top:-140px;padding-top:140px;}
+#seetype{background:url('../images/list_bg.jpg');margin-top:-140px;padding-top:140px;background-size:cover;}
 .seetype-title{display:flex;flex-direction:column;margin-top:20px;margin-bottom:20px;}
 .seetype-title-b{color:#fff;font-size:40px;text-shadow:1px 1px 5px #333;}
 .seetype-title-s{color:#ccc;font-size:18px;font-weight:lighter;}
