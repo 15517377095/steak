@@ -15,7 +15,7 @@
                             <li data-target="#carouselExampleIndicators" :class="index == 0 ? 'active' : ''" v-for="(headerScrollGame,index) in headerScrollGames" :key="index" :data-slide-to="index"></li>
                         </ol>
                         <div class="carousel-inner">
-                        <router-link :to="'/game/' + headerScrollGame.id" :class="index == 0 ? 'carousel-item active' : 'carousel-item'" v-for="(headerScrollGame,index) in headerScrollGames" :key="headerScrollGame.id">
+                        <router-link :to="'/game/' + headerScrollGame.id" :class="index == 0 ? 'carousel-item active mdui-ripple' : 'carousel-item mdui-ripple'" v-for="(headerScrollGame,index) in headerScrollGames" :key="headerScrollGame.id">
                             <div class="carousel-item-imgbox">
                                 <img :src="headerScrollGame.imgs" class="d-block w-100">
                             </div>
@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-md-10 col-lg-8 offset-0 offset-md-1">
                     <span class="nogames" v-if="games == ''"><i class="fas fa-frown mr-2"></i>该分类暂无内容</span>
-                    <router-link :to="'/game/' + game.id" class="item row" v-for="game in games" :key="game.id">
+                    <router-link :to="'/game/' + game.id" class="item row mdui-ripple" v-for="game in games" :key="game.id">
                         <div class="col-auto pl-0 item-img">
                             <img :src="game.imgs" />
                         </div>
@@ -63,10 +63,10 @@
                 </div>
                 <div class="col-md-10 col-lg-2 offset-0 offset-md-1 offset-lg-0">
                     <div class="types-list">
-                        <router-link to="/list/free" class="types-list-item">免费游玩</router-link>
-                        <router-link to="/list/new" class="types-list-item">抢先体验</router-link>
-                        <router-link to="/list" class="types-list-item">所有类型</router-link>
-                        <router-link :to="'/list/' + gameType.id" class="types-list-item" v-for="gameType in gameTypes" :key="gameType.id">
+                        <router-link to="/list/free" class="types-list-item mdui-ripple">免费游玩</router-link>
+                        <router-link to="/list/new" class="types-list-item mdui-ripple">抢先体验</router-link>
+                        <router-link to="/list" class="types-list-item mdui-ripple">所有类型</router-link>
+                        <router-link :to="'/list/' + gameType.id" class="types-list-item mdui-ripple" v-for="gameType in gameTypes" :key="gameType.id">
                             {{ gameType.name }}
                         </router-link>
                     </div>

@@ -16,7 +16,7 @@
                             <span class="header_scroll_imgcontent_message cur-d header_scroll_imgcontent_name_source">
                                 {{ headerScrollGame.introduction }} . . .
                             </span><br/>
-                            <router-link class="game_button opa-0" :to="'/game/' + headerScrollGame.id">了解更多</router-link>
+                            <router-link class="game_button opa-0 mdui-ripple" :to="'/game/' + headerScrollGame.id">了解更多</router-link>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
             </div>
             <div id="new_games_items"  class="row">
                 <div :class="index==0||index==5 ? 'col-12 col-md-6 col-lg-'+6 : 'col-12 col-md-6 col-lg-'+3" v-for="(newGame,index) in newGames" :key="newGame.id">
-                    <router-link :to="'/game/' + newGame.id" :style="'background:url(' + newGame.imgs + ')'" class="new_games_item cur-p">
+                    <router-link :to="'/game/' + newGame.id" :style="'background:url(' + newGame.imgs + ')'" class="new_games_item cur-p mdui-ripple">
                         <div class="row">
                             <div class="col-12 new_games_item_name">
                                 {{ newGame.name }}
@@ -68,8 +68,8 @@
                                 <span>加入社区<br/></span>
                                 <span>定制体验<br/></span>
                                 <span>拥有 Steak 帐户，即可关注游戏、视频和其他内容，让你的体验更加丰富独特。<br/></span>
-                                <router-link to="/login" id="main_login_log">登陆</router-link>
-                                <router-link to="/reg" id="main_login_reg">注册</router-link>
+                                <router-link to="/login" id="main_login_log" class="mdui-ripple">登陆</router-link>
+                                <router-link to="/reg" id="main_login_reg" class="mdui-ripple">注册</router-link>
                             </div>
                         </div>
                     </div>

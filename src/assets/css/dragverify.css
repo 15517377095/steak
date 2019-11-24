@@ -1,0 +1,8 @@
+q:before, q:after{content:' '}
+abbr,acronym{border:0;}
+#dragverify{position:relative;background-color:#e8e8e8;width:300px;height:60px;overflow:hidden;background:#222;border-radius:2px;border:1px solid #525252;line-height:34px;text-align:center;}
+#dragverify .block{position:absolute;top:-2px;left:-2px;width:40px;height:60px;border:1px solid #cccccc;cursor:move;}
+.blockbg{background:#ddd url(../images/blockbg.png) no-repeat center;}
+.blockbgsuc{background:#ddd url(../images/suc.png) no-repeat center;}
+#dragverify .dragverifybg{background-color:#009E55;height:60px;width:0;}
+#dragverify .dragverifytext{position:absolute;top:10px;width:300px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;color:#eee;font-size:14px;}

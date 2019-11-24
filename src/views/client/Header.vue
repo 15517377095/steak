@@ -35,11 +35,11 @@
                                                 <span>游戏</span>
                                             </router-link>
                                             <div class="navbar_item_more dropdown-menu">
-                                                <router-link class="dropdown-item" to="/list/free">免费游玩</router-link>
-                                                <router-link class="dropdown-item" to="/list/new">抢先体验</router-link>
+                                                <router-link class="dropdown-item mdui-ripple" to="/list/free">免费游玩</router-link>
+                                                <router-link class="dropdown-item mdui-ripple" to="/list/new">抢先体验</router-link>
                                                 <div class="dropdown-divider"></div>
                                                 <div class="dropdown-title">按类型浏览：</div>
-                                                <router-link v-for="gameType in gameTypes" :key="gameType.id" class="dropdown-item" :to="'/list/' + gameType.id">
+                                                <router-link v-for="gameType in gameTypes" :key="gameType.id" class="dropdown-item mdui-ripple" :to="'/list/' + gameType.id">
                                                     {{ gameType.name }}
                                                 </router-link>
                                             </div>
@@ -50,7 +50,7 @@
                                             </a>
                                             <div class="navbar_item_more dropdown-menu">
                                                 <!-- [jsp数据]新闻 -->
-                                                <a class="dropdown-item" href="#">[jsp数据]新闻列表</a>
+                                                <a class="dropdown-item mdui-ripple" href="#">[jsp数据]新闻列表</a>
                                             </div>
                                         </li>
                                         <li>
@@ -64,17 +64,17 @@
                                                 <span>登陆</span>
                                             </router-link>
                                             <div v-if="loginUser == ''" class="navbar_item_more dropdown-menu">
-                                                <router-link class="dropdown-item" to="/login">登陆Steak账户</router-link>
-                                                <router-link class="dropdown-item" to="/reg">开通新账号</router-link>
+                                                <router-link class="dropdown-item mdui-ripple" to="/login">登陆Steak账户</router-link>
+                                                <router-link class="dropdown-item mdui-ripple" to="/reg">开通新账号</router-link>
                                             </div>
                                             <!-- 登录状态 -->
-                                            <a v-if="loginUser != ''" class="navbar_item_title" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span>我的</span>
-                                            </a>
+                                            <router-link to="/shop" v-if="loginUser != ''" class="navbar_item_title" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                {{ loginUser.email }}
+                                            </router-link>
                                             <div v-if="loginUser != ''" class="navbar_item_more dropdown-menu">
-                                                <a class="dropdown-item">欢迎，</a>
-                                                <router-link class="dropdown-item" to="/shop">我的购物车</router-link>
-                                                <router-link class="dropdown-item" to="/logout">登出</router-link>
+                                                <router-link class="dropdown-item mdui-ripple" to="/shop">我的购物车</router-link>
+                                                <span class="dropdown-item mdui-ripple" @click="loginout">登出</span>
+                                                <router-link class="dropdown-item mdui-ripple" to="/login">切换用户</router-link>
                                             </div>
                                         </li>
                                     </ul>
@@ -113,6 +113,9 @@
                                                     <img src="../../assets/images/logo.png" width="190px" />
                                                 </div>
                                             </div>
+                                            <div v-if="loginUser != ''" class="row nav_move_more_menu_loginusername">
+                                                欢迎，{{ loginUser.email }}
+                                            </div>
                                             <div class="row">
                                                 <div id="nav_move_more_menu_items" class="col">
                                                     <router-link to="/" class="row">
@@ -141,6 +144,18 @@
                                                     </router-link>
                                                     <router-link to="/about" class="row">
                                                         <div class="col-auto font_oswaldlight">关于</div>
+                                                        <div class="col-auto ml-auto font_oswaldlight">
+                                                            <i class="fas fa-chevron-right"></i>
+                                                        </div>
+                                                    </router-link>
+                                                    <router-link v-if="loginUser != ''" to="/shop" class="row">
+                                                        <div class="col-auto font_oswaldlight">购物车</div>
+                                                        <div class="col-auto ml-auto font_oswaldlight">
+                                                            <i class="fas fa-chevron-right"></i>
+                                                        </div>
+                                                    </router-link>
+                                                    <router-link v-if="loginUser == ''" to="/login" class="row">
+                                                        <div class="col-auto font_oswaldlight">登录</div>
                                                         <div class="col-auto ml-auto font_oswaldlight">
                                                             <i class="fas fa-chevron-right"></i>
                                                         </div>
@@ -217,12 +232,14 @@
 </template>
 
 <script>
+import mdui from 'mdui/dist/js/mdui.min.js'
+
 export default {
     data(){
         return{
             navFixedShow: false,
             loginUser: '',
-            gameTypes: []
+            gameTypes: [],
         }
     },
     methods:{
@@ -280,11 +297,32 @@ export default {
             }).then((response) => {
                 this.gameTypes=response.data
             })
+        },
+        getLoginUser(){
+            this.$http({
+                methods: 'post',
+                url: '/api/user/getLoginUser'
+            }).then((response) => {
+                this.loginUser = response.data;
+            })
+        },
+        loginout(){
+            this.$http({
+                methods: 'post',
+                url: '/api/user/logout'
+            }).then((response) => {
+                mdui.snackbar({
+                    message: '账户已退出',
+                    position: 'right-bottom'
+                });
+                this.loginUser = '';
+            })
         }
     },
     mounted(){
         this.addWinScrollEvent();
         this.getGameTypes();
+        this.getLoginUser();
     }
 }
 </script>

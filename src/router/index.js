@@ -4,6 +4,7 @@ import ClientIndex from '../views/client/Index.vue'
 import ClientList from '../views/client/List.vue'
 import ClientGame from '../views/client/Game.vue'
 import ClientLogin from '../views/client/Login.vue'
+import ClientReg from '../views/client/Reg.vue'
 
 Vue.use(VueRouter)
 
@@ -30,8 +31,8 @@ const routes = [
   },
   {
     path: '/reg',
-    name: 'clientLogin',
-    component: ClientLogin
+    name: 'clientReg',
+    component: ClientReg
   }
 ]
 

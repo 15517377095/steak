@@ -46,13 +46,13 @@
                 <div class="col bottom_links_hr"></div>
                 <div class="row">
                     <div class="col-6 col-sm-12 col-xl-6">
-                        <a href="#">微信</a><br/>
-                        <a href="#">QQ</a><br/>
-                        <a href="#">知乎</a>
+                        <a href="#" data-toggle="modal" data-target="#exampleModal">微信</a><br/>
+                        <a href="#" data-toggle="modal" data-target="#exampleModal">QQ</a><br/>
+                        <a href="#" data-toggle="modal" data-target="#exampleModal">知乎</a>
                     </div>
                     <div class="col-6 col-sm-12 col-xl-6">
-                        <a href="#">YouTube</a><br/>
-                        <a href="#">Steam</a>
+                        <a href="#" data-toggle="modal" data-target="#exampleModal">YouTube</a><br/>
+                        <a href="#" data-toggle="modal" data-target="#exampleModal">Steam</a>
                     </div>
                 </div>
             </div>

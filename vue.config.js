@@ -48,6 +48,7 @@ module.exports = {
       open: true,
       // host: 'localhost',
       // port: 8080,
+      disableHostCheck: true, //跳过host检查
       https: false,
       hotOnly: false,
       proxy: {

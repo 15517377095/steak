@@ -39,3 +39,7 @@
 /*更多菜单*/
 .nav_move_more_menu_hidden{left:100%;width:0%;}
 .nav_move_more_menu_show{left:0%;width:100%;}
+
+.dropdown-item:focus{background:#eee;}
+
+.nav_move_more_menu_loginusername{line-height:20px;text-indent:16px;font-size:16px;padding-bottom:10px;}
