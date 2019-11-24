@@ -60,18 +60,18 @@
                                         </li>
                                         <li @mouseenter="toggleNavbarItemMore" @mouseleave="toggleNavbarItemMore">
                                             <!-- 未登陆状态 -->
-                                            <router-link v-if="loginUser == ''" class="navbar_item_title" to="/login" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <router-link v-if="$parent.$parent.loginUser == ''" class="navbar_item_title" to="/login" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span>登陆</span>
                                             </router-link>
-                                            <div v-if="loginUser == ''" class="navbar_item_more dropdown-menu">
+                                            <div v-if="$parent.$parent.loginUser == ''" class="navbar_item_more dropdown-menu">
                                                 <router-link class="dropdown-item mdui-ripple" to="/login">登陆Steak账户</router-link>
                                                 <router-link class="dropdown-item mdui-ripple" to="/reg">开通新账号</router-link>
                                             </div>
                                             <!-- 登录状态 -->
-                                            <router-link to="/shop" v-if="loginUser != ''" class="navbar_item_title" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                {{ loginUser.email }}
+                                            <router-link to="/shop" v-if="$parent.$parent.loginUser != ''" class="navbar_item_title" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                {{ $parent.$parent.loginUser.email }}
                                             </router-link>
-                                            <div v-if="loginUser != ''" class="navbar_item_more dropdown-menu">
+                                            <div v-if="$parent.$parent.loginUser != ''" class="navbar_item_more dropdown-menu">
                                                 <router-link class="dropdown-item mdui-ripple" to="/shop">我的购物车</router-link>
                                                 <span class="dropdown-item mdui-ripple" @click="loginout">登出</span>
                                                 <router-link class="dropdown-item mdui-ripple" to="/login">切换用户</router-link>
@@ -113,8 +113,8 @@
                                                     <img src="../../assets/images/logo.png" width="190px" />
                                                 </div>
                                             </div>
-                                            <div v-if="loginUser != ''" class="row nav_move_more_menu_loginusername">
-                                                欢迎，{{ loginUser.email }}
+                                            <div v-if="$parent.$parent.loginUser != ''" class="row nav_move_more_menu_loginusername">
+                                                欢迎，{{ $parent.$parent.loginUser.email }}
                                             </div>
                                             <div class="row">
                                                 <div id="nav_move_more_menu_items" class="col">
@@ -148,13 +148,13 @@
                                                             <i class="fas fa-chevron-right"></i>
                                                         </div>
                                                     </router-link>
-                                                    <router-link v-if="loginUser != ''" to="/shop" class="row">
+                                                    <router-link v-if="$parent.$parent.loginUser != ''" to="/shop" class="row">
                                                         <div class="col-auto font_oswaldlight">购物车</div>
                                                         <div class="col-auto ml-auto font_oswaldlight">
                                                             <i class="fas fa-chevron-right"></i>
                                                         </div>
                                                     </router-link>
-                                                    <router-link v-if="loginUser == ''" to="/login" class="row">
+                                                    <router-link v-if="$parent.$parent.loginUser == ''" to="/login" class="row">
                                                         <div class="col-auto font_oswaldlight">登录</div>
                                                         <div class="col-auto ml-auto font_oswaldlight">
                                                             <i class="fas fa-chevron-right"></i>
@@ -238,7 +238,6 @@ export default {
     data(){
         return{
             navFixedShow: false,
-            loginUser: '',
             gameTypes: [],
         }
     },
@@ -298,14 +297,6 @@ export default {
                 this.gameTypes=response.data
             })
         },
-        getLoginUser(){
-            this.$http({
-                methods: 'post',
-                url: '/api/user/getLoginUser'
-            }).then((response) => {
-                this.loginUser = response.data;
-            })
-        },
         loginout(){
             this.$http({
                 methods: 'post',
@@ -322,7 +313,6 @@ export default {
     mounted(){
         this.addWinScrollEvent();
         this.getGameTypes();
-        this.getLoginUser();
     }
 }
 </script>

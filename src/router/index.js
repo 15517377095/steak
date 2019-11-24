@@ -5,6 +5,7 @@ import ClientList from '../views/client/List.vue'
 import ClientGame from '../views/client/Game.vue'
 import ClientLogin from '../views/client/Login.vue'
 import ClientReg from '../views/client/Reg.vue'
+import ClientShop from '../views/client/Shop.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/reg',
     name: 'clientReg',
     component: ClientReg
+  },
+  {
+    path: '/shop',
+    name: 'clientShop',
+    component: ClientShop
   }
 ]
 
