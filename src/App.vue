@@ -32,6 +32,9 @@ export default {
                 position: 'right-bottom'
             });
             this.loginUser = '';
+            if(this.$route.path == '/shop'){  //如果是在购物车页面就跳到登录
+              this.$router.push({path:"/login"});
+            }
         })
     }
   },

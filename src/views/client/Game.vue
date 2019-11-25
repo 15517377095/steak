@@ -227,6 +227,13 @@ export default {
             }
         },
         addShop(event){
+            if(this.loginUser == ''){
+                mdui.snackbar({
+                    message: '登陆后可添加到购物车，请 <a href="#/login">登录</a>',
+                    position: 'right-bottom'
+                });
+                return;
+            }
             this.$http({
                 methods: 'post',
                 params: {

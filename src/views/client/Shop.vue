@@ -5,6 +5,13 @@
                 <div class="row">
                     <div class="col-10 offset-lg-1 from-title">我的购物车</div>
                 </div>
+                <!-- 购物车空 -->
+                <div class="row" v-if="shops == ''">
+                    <div class="col-auto ml-auto mr-auto nullcar cur-d">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>购物车为空</span>
+                    </div>
+                </div>
                 <div class="row pl-3 pr-3" v-for="shop in shops" :key="shop.id">
                     <div class="col-md-10 col-lg-8 offset-lg-1" >
                         <div class="item row mdui-ripple">
@@ -41,7 +48,7 @@ export default {
     },
     data(){
         return{
-            shops: [],
+            shops: '',
             loginUser: ''
         }
     },
@@ -52,6 +59,14 @@ export default {
                 url: '/api/user/getLoginUser'
             }).then((response) => {
                 this.loginUser=response.data;
+                if(this.loginUser == ''){
+                    this.$router.push({path:"/login"});
+                    mdui.snackbar({
+                        message: '登录后可以使用购物车',
+                        position: 'right-bottom'
+                    });
+                    return;
+                }
                 this.getShops();
             })
         },
