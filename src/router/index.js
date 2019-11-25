@@ -6,6 +6,7 @@ import ClientGame from '../views/client/Game.vue'
 import ClientLogin from '../views/client/Login.vue'
 import ClientReg from '../views/client/Reg.vue'
 import ClientShop from '../views/client/Shop.vue'
+import ClientAbout from '../views/client/About.vue'
 
 Vue.use(VueRouter)
 
@@ -39,11 +40,16 @@ const routes = [
     path: '/shop',
     name: 'clientShop',
     component: ClientShop
+  },
+  {
+    path: '/about',
+    name: 'clientAbout',
+    component: ClientAbout
   }
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  //mode: 'history',
   base: process.env.BASE_URL,
   routes
 })

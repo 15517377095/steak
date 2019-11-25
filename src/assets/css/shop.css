@@ -1,0 +1,20 @@
+.shop{background:#1B2838;}
+#all{padding-bottom:80px;background:url('../images/list_bg.jpg');background-size:cover;margin-top:-140px;padding-top:180px;}
+.from-title{color:#ededed;font-size:30px;margin-bottom:20px;text-shadow:0.4px 0.4px 1px #333;}
+.reg-form-box{box-shadow:0 0 4px rgba(60, 60, 60, 0.5);background:#16202D;border-radius:1px;}
+
+.item{transition:background 0.2s;width:100%;color:#444;background:rgba(255,255,255,0.7);border-radius:2px;box-shadow:0 0 3px #1C2939;margin:20px 0;}
+.item:hover{text-decoration:none;background:rgba(28, 41, 57, 0.842);color:#eee;}
+.item-img img{width:200px;}
+.item-content{display:flex;flex-direction:column;justify-content:space-around;padding:10px 0;}
+.item-content span{font-weight:bold;font-size:18px;}
+
+.item-price{color:#fff;font-size:20px;color:#ff7a21;display:flex;flex-direction:column;justify-content:center;padding-right:30px;} 
+
+.delete-box{color:#444;display:flex;flex-direction:column;justify-content:center;transition:background 0.2s;background:rgba(255,255,255,0.7);margin:20px 0;border-radius:2px;box-shadow:0 0 3px #1C2939;padding:0 20px;}
+.delete-box:hover{text-decoration:none;background:#db1a00;color:#eee;}
+
+@media screen and (max-width:768px) {  /*<=md*/
+    .item{margin-bottom:10px;}
+    .delete-box{margin-top:0;margin-left:16px;height:30px;background:rgba(255,255,255,0.3);color:#ddd;}
+}

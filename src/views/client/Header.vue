@@ -44,15 +44,6 @@
                                                 </router-link>
                                             </div>
                                         </li>
-                                        <li @mouseenter="toggleNavbarItemMore" @mouseleave="toggleNavbarItemMore">
-                                            <a class="navbar_item_title" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span>新闻</span>
-                                            </a>
-                                            <div class="navbar_item_more dropdown-menu">
-                                                <!-- [jsp数据]新闻 -->
-                                                <a class="dropdown-item mdui-ripple" href="#">[jsp数据]新闻列表</a>
-                                            </div>
-                                        </li>
                                         <li>
                                             <router-link class="navbar_item_title" to="/about">
                                                 <span>关于</span>
@@ -73,7 +64,7 @@
                                             </router-link>
                                             <div v-if="$parent.$parent.loginUser != ''" class="navbar_item_more dropdown-menu">
                                                 <router-link class="dropdown-item mdui-ripple" to="/shop">我的购物车</router-link>
-                                                <span class="dropdown-item mdui-ripple" @click="loginout">登出</span>
+                                                <span class="dropdown-item mdui-ripple" @click="$parent.$parent.loginout">登出</span>
                                                 <router-link class="dropdown-item mdui-ripple" to="/login">切换用户</router-link>
                                             </div>
                                         </li>
@@ -130,18 +121,6 @@
                                                             <i class="fas fa-chevron-right"></i>
                                                         </div>
                                                     </router-link>
-                                                    <router-link to="/" class="row">
-                                                        <div class="col-auto font_oswaldlight">硬件</div>
-                                                        <div class="col-auto ml-auto font_oswaldlight">
-                                                            <i class="fas fa-chevron-right"></i>
-                                                        </div>
-                                                    </router-link>
-                                                    <router-link to="/new" class="row">
-                                                        <div class="col-auto font_oswaldlight">新闻</div>
-                                                        <div class="col-auto ml-auto font_oswaldlight">
-                                                            <i class="fas fa-chevron-right"></i>
-                                                        </div>
-                                                    </router-link>
                                                     <router-link to="/about" class="row">
                                                         <div class="col-auto font_oswaldlight">关于</div>
                                                         <div class="col-auto ml-auto font_oswaldlight">
@@ -154,6 +133,12 @@
                                                             <i class="fas fa-chevron-right"></i>
                                                         </div>
                                                     </router-link>
+                                                    <a @click="$parent.$parent.loginout" v-if="$parent.$parent.loginUser != ''" class="row">
+                                                        <div class="col-auto font_oswaldlight">登出</div>
+                                                        <div class="col-auto ml-auto font_oswaldlight">
+                                                            <i class="fas fa-chevron-right"></i>
+                                                        </div>
+                                                    </a>
                                                     <router-link v-if="$parent.$parent.loginUser == ''" to="/login" class="row">
                                                         <div class="col-auto font_oswaldlight">登录</div>
                                                         <div class="col-auto ml-auto font_oswaldlight">
@@ -297,22 +282,16 @@ export default {
                 this.gameTypes=response.data
             })
         },
-        loginout(){
-            this.$http({
-                methods: 'post',
-                url: '/api/user/logout'
-            }).then((response) => {
-                mdui.snackbar({
-                    message: '账户已退出',
-                    position: 'right-bottom'
-                });
-                this.loginUser = '';
+        clearErrorNavItemMore(){
+            addEventListener("click",function(){
+                $(".navbar_item_more").hide();
             })
         }
     },
     mounted(){
         this.addWinScrollEvent();
         this.getGameTypes();
+        this.clearErrorNavItemMore();
     }
 }
 </script>

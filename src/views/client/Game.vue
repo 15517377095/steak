@@ -65,14 +65,18 @@
                     </div>
                     <div class="row">
                         <div class="col-10 pl-0 d-none d-xl-block p-abs game_price_xl" id="game_price">￥{{ game.money }} RMB</div>
-                        <div class="col-10 d-none d-xl-block p-abs join_shop_xl" id="join_shop">
-                            <a href="#" >加入购物车</a><br/>
-                            <input type="checkbox" checked="checked" /><span>已了解<a href="#" data-toggle="modal" data-target="#exampleModal2">Steak协议</a></span>
+                        <div @click="addShop" class="col-10 d-none d-xl-block p-abs join_shop_xl cur-p" id="join_shop">
+                            <a>加入购物车</a><br/>
+                            <input @click="clearPropagation" type="checkbox" checked="checked" />
+                            <span @click="clearPropagation" class="cur-d">已了解</span>
+                            <span @click="showModel2" class="xy" data-toggle="modal" data-target="#exampleModal2">Steak协议</span>
                         </div>
                         <div class="col-10 pl-0 d-block d-xl-none" id="game_price">￥{{ game.money }} RMB</div>
-                        <div class="col-6 d-block d-xl-none" id="join_shop">
-                            <a href="#" >加入购物车</a><br/>
-                            <input type="checkbox" checked="checked" /><span>已了解<a href="#" data-toggle="modal" data-target="#exampleModal2">Steak协议</a></span>
+                        <div @click="addShop" class="col-6 d-block d-xl-none cur-p" id="join_shop">
+                            <a>加入购物车</a><br/>
+                            <input @click="clearPropagation" type="checkbox" checked="checked" />
+                            <span @click="clearPropagation" class="cur-d">已了解</span>
+                            <span @click="showModel2" class="xy" data-toggle="modal" data-target="#exampleModal2">Steak协议</span>
                         </div>
                     </div>
                 </div>
@@ -177,6 +181,7 @@
 <script>
 import Header from './Header'
 import Bottom from './Bottom'
+import mdui from 'mdui/dist/js/mdui.min.js'
 
 import Editormd from '../../assets/lib/editormd.js'
 import Marked from '../../assets/lib/marked.min.js'
@@ -192,7 +197,8 @@ export default {
             gameId: '',
             game: {id:'',type:{id:''}},
             gameImgs: [],
-            gameLangages: []
+            gameLangages: [],
+            loginUser: ''
         }
     },
     methods:{
@@ -219,16 +225,56 @@ export default {
                 this.gameId=path.match(reg)[0];
                 this.getGame();
             }
+        },
+        addShop(event){
+            this.$http({
+                methods: 'post',
+                params: {
+                    userId: this.loginUser.id,
+                    gameId: this.gameId
+                },
+                url: '/api/shop/addOne'
+            }).then((response) => {
+                if(response.data){
+                    mdui.snackbar({
+                        message: '已添加到购物车',
+                        position: 'right-bottom'
+                    });
+                }else{
+                    mdui.snackbar({
+                        message: '购物车内已存在',
+                        position: 'right-bottom'
+                    });
+                }
+            })
+            
+        },
+        clearPropagation(event){
+            if(event.stopPropagation){
+                event.stopPropagation();
+            }else{
+                event.cancelBubble=true;
+            }
+        },
+        showModel2(event){
+            this.clearPropagation(event);   //阻止冒泡,影响到了模态框,所以:
+            $("#exampleModal2").modal({ //js方式打开模态框
+                show:true
+            });
+        },
+        getLoginUser(){
+            this.$http({
+                methods: 'post',
+                url: '/api/user/getLoginUser'
+            }).then((response) => {
+                this.loginUser = response.data;
+            })
         }
     },
     mounted(){
         this.getGameId();
-        $("html,body").animate({scrollTop:0},100); 
-    },
-    watch:{
-        $route(from,to){
-            
-        }
+        $("html,body").animate({scrollTop:0},100);
+        this.getLoginUser();
     }
 }
 </script>

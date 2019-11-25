@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import mdui from 'mdui/dist/js/mdui.min.js'
+
 export default {
   data(){
     return {
@@ -18,6 +20,18 @@ export default {
             url: '/api/user/getLoginUser'
         }).then((response) => {
             this.loginUser = response.data;
+        })
+    },
+    loginout(){
+        this.$http({
+            methods: 'post',
+            url: '/api/user/logout'
+        }).then((response) => {
+            mdui.snackbar({
+                message: '账户已退出',
+                position: 'right-bottom'
+            });
+            this.loginUser = '';
         })
     }
   },

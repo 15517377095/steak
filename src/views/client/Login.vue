@@ -107,7 +107,8 @@ export default {
                     message: '登录成功',
                     position: 'right-bottom'
                 });
-                this.$router.push({ path: '/' })
+                this.$router.push({ path: '/' });
+                location.reload();  //刷新页面重载Header
             })
         }
     },
