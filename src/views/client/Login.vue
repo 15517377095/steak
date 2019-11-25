@@ -44,7 +44,7 @@
                         <li>安排游戏、比赛或 LAN 聚会</li>
                         <li>获取自动游戏更新以及更多！</li>
                     </ul>
-                    <img class="why-img" src="https://store.st.dl.bscstorage.net/public/images/v6/why_join_preview.png" />
+                    <img class="why-img" src="../../assets/images/why_join_preview.png" />
                 </div>
             </div>
         </div>

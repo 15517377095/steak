@@ -82,7 +82,7 @@
                         <li>安排游戏、比赛或 LAN 聚会</li>
                         <li>获取自动游戏更新以及更多！</li>
                     </ul>
-                    <img class="why-img" src="https://store.st.dl.bscstorage.net/public/images/v6/why_join_preview.png" />
+                    <img class="why-img" src="../../assets/images/why_join_preview.png" />
                     <p>支持的操作系统</p>
                     <p>Windows 7、8、8.1、10 或更新版本。</p>
                     <p>Intel Mac、OS X 版本 10.11（El Capitan）或更新版本。</p>

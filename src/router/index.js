@@ -7,6 +7,7 @@ import ClientLogin from '../views/client/Login.vue'
 import ClientReg from '../views/client/Reg.vue'
 import ClientShop from '../views/client/Shop.vue'
 import ClientAbout from '../views/client/About.vue'
+import AdminLogin from '../views/admin/Login.vue'
 
 Vue.use(VueRouter)
 
@@ -45,6 +46,11 @@ const routes = [
     path: '/about',
     name: 'clientAbout',
     component: ClientAbout
+  },
+  {
+    path: '/admin/login',
+    name: 'adminLogin',
+    component: AdminLogin
   }
 ]
 

@@ -1,0 +1,11 @@
+.header{background:#f9f9f9;}
+
+.header-bar{height:70px;background:#30419b;line-height:70px;}
+.header-logo img{height:60px;}
+.header-ico{transition:all 0.2s;color:#fafafa;font-size:22px;margin:0 4px;}
+.header-ico:hover{color:rgb(129, 175, 218);}
+
+.header-nav{line-height:60px;height:60px;background:#fff;border-bottom:2px solid rgba(53, 69, 88, 0.1)}
+.nav-item{transition:all 0.2s;color:rgba(53, 69, 88, 0.8);font-size:14px;}
+.nav-item:hover{color:#30419b;}
+.nav-item i{padding-right:10px;}
