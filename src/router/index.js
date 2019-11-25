@@ -8,6 +8,7 @@ import ClientReg from '../views/client/Reg.vue'
 import ClientShop from '../views/client/Shop.vue'
 import ClientAbout from '../views/client/About.vue'
 import AdminLogin from '../views/admin/Login.vue'
+import AdminIndex from '../views/admin/Index.vue'
 
 Vue.use(VueRouter)
 
@@ -51,6 +52,16 @@ const routes = [
     path: '/admin/login',
     name: 'adminLogin',
     component: AdminLogin
+  },
+  {
+    path: '/admin/index',
+    name: 'adminIndex',
+    component: AdminIndex
+  },
+  {
+    path: '/admin',
+    name: 'adminIndex',
+    component: AdminIndex
   }
 ]
 

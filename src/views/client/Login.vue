@@ -15,7 +15,7 @@
                             <div class="title-s">到现有的 steak 帐户</div>
                             <div class="mdui-textfield mdui-textfield-floating-label">
                                 <label class="mdui-textfield-label">steak 帐户名称</label>
-                                <input v-model="loginForm.email" class="mdui-textfield-input" type="text" required/>
+                                <input v-model="loginForm.email" class="mdui-textfield-input" type="email" required/>
                                 <div class="mdui-textfield-error">用户名不能为空</div>
                             </div>
                             <div class="mdui-textfield mdui-textfield-floating-label">
@@ -96,6 +96,13 @@ export default {
                 params: this.loginForm,
                 url: '/api/user/login'
             }).then((response) => {
+                if(response.data.permissions == 1){
+                    mdui.snackbar({
+                        message: '非法登入',
+                        position: 'right-bottom'
+                    });
+                    return;
+                }
                 if(response.data == 0){
                     mdui.snackbar({
                         message: '账户名或密码不正确',

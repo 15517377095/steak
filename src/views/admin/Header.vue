@@ -11,7 +11,7 @@
                 <div class="col-auto header-ico cur-p mdui-ripple" title="安全锁定">
                     <i class="fas fa-unlock-alt"></i>
                 </div>
-                <div class="col-auto header-ico cur-p mdui-ripple" title="退出">
+                <div @click="$parent.$parent.loginout" class="col-auto header-ico cur-p mdui-ripple" title="退出">
                     <i class="fas fa-sign-out-alt"></i>
                 </div>
                 <div class="col-0 col-xl-1" />
@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import mdui from 'mdui/dist/js/mdui.min.js'
+
 export default {
     methods:{
         fullscreen(){
@@ -64,7 +66,11 @@ export default {
                 return;
             }
             this.exitFullscreen();
-        }
+        },
+        
+    },
+    mounted(){
+        this.$parent.$parent.userInterceptor();
     }
 }
 </script>
