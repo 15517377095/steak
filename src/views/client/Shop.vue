@@ -55,8 +55,8 @@ export default {
     methods:{
         getLoginUser(){
             this.$http({
-                methods: 'post',
-                url: '/api/user/getLoginUser'
+                method: 'post',
+                url: '/user/getLoginUser'
             }).then((response) => {
                 this.loginUser=response.data;
                 if(this.loginUser == ''){
@@ -72,22 +72,22 @@ export default {
         },
         getShops(){
             this.$http({
-                methods: 'post',
+                method: 'post',
                 params: {
                     id: this.loginUser.id
                 },
-                url: '/api/shop/gatByUserId'
+                url: '/shop/gatByUserId'
             }).then((response) => {
                 this.shops=response.data;
             })
         },
         deleteById(shopId){
             this.$http({
-                methods: 'post',
+                method: 'post',
                 params: {
                     id: shopId
                 },
-                url: '/api/shop/deleteById'
+                url: '/shop/deleteById'
             }).then((response) => {
                 this.getShops();
                 mdui.snackbar({

@@ -5,19 +5,23 @@
                 <div class="col col-md-auto ml-auto mr-auto login-box anim-2">
                     <img class="login-logo" src="../../assets/images/logo.png" />
                     <span class="login-title">登录到 Steak 后台管理系统</span>
-                    <div class="form-group">
+                    <div v-if="!lockUsername" class="form-group">
                         <label for="exampleInputPassword1">用户名</label>
                         <input type="text" v-model="loginForm.email" class="form-control" id="exampleInputPassword1" placeholder="用户名">
+                    </div>
+                    <div v-if="lockUsername" class="lockinfo">
+                        用户已锁定：{{lockUsername}}
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword2">密码</label>
                         <input type="password" v-model="loginForm.password" class="form-control" id="exampleInputPassword2" placeholder="密码">
                     </div>
-                    <div class="form-group form-check">
+                    <div v-if="!lockUsername" class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">记住我</label>
                     </div>
                     <button class="btn btn-primary login-btn mdui-ripple" @click="login">登 入</button>
+                    <button v-if="lockUsername" class="btn btn-primary logout-btn mdui-ripple" @click="$parent.loginout">退出锁定用户</button>
                 </div>
             </div>
         </div>
@@ -36,8 +40,18 @@ export default {
             }
         }
     },
+    computed:{
+        lockUsername(){
+            if(window.sessionStorage["lockUsername"]){
+                this.loginForm.email = window.sessionStorage["lockUsername"];
+                return window.sessionStorage["lockUsername"];
+            }
+            return null;
+        }
+    },
     methods:{
         login(){
+            window.sessionStorage.removeItem("lockUsername");
             var usernameReg= /^.{1,20}$/ ;
             var passwordReg= /^.{6,}$/;
             if(!usernameReg.test(this.loginForm.email) || !passwordReg.test(this.loginForm.password)){
@@ -48,9 +62,9 @@ export default {
                 return;
             }
             this.$http({
-                methods: 'post',
+                method: 'post',
                 params: this.loginForm,
-                url: '/api/user/login'
+                url: '/user/login'
             }).then((response) => {
                 if(response.data.permissions == 0){
                     mdui.snackbar({

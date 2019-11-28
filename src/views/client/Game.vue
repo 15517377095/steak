@@ -204,11 +204,11 @@ export default {
     methods:{
         getGame(){
             this.$http({
-                methods: 'post',
+                method: 'post',
                 params: {
                     id: this.gameId
                 },
-                url: '/api/game/getById'
+                url: '/game/getById'
             }).then((response) => {
                 this.game=response.data
                 this.gameImgs=this.game.imgs.split(";");  //拆分滚播图片
@@ -235,12 +235,12 @@ export default {
                 return;
             }
             this.$http({
-                methods: 'post',
+                method: 'post',
                 params: {
                     userId: this.loginUser.id,
                     gameId: this.gameId
                 },
-                url: '/api/shop/addOne'
+                url: '/shop/addOne'
             }).then((response) => {
                 if(response.data){
                     mdui.snackbar({
@@ -271,8 +271,8 @@ export default {
         },
         getLoginUser(){
             this.$http({
-                methods: 'post',
-                url: '/api/user/getLoginUser'
+                method: 'post',
+                url: '/user/getLoginUser'
             }).then((response) => {
                 this.loginUser = response.data;
             })

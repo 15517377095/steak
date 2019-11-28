@@ -276,8 +276,8 @@ export default {
         },
         getGameTypes(){
             this.$http({
-                methods: 'post',
-                url: '/api/type/getAll'
+                method: 'post',
+                url: '/type/getAll'
             }).then((response) => {
                 this.gameTypes=response.data
             })

@@ -6,3 +6,6 @@
 .form-group{width:86%;}
 .login-btn{width:86%;background:#30419b;transition:all 0.2s;position:relative;top:0;margin-top:20px;}
 .login-btn:hover{width:86%;position:relative;top:-2px;width:80%;padding:8px 0;background:#3e53be;}
+
+.lockinfo{font-size:18px;line-height:80px;}
+.logout-btn{width:86%;background:#00000000;color:#4862e6;transition:all 0.2s;position:relative;top:0;margin-top:10px;}

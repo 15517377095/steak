@@ -98,8 +98,8 @@ export default {
     methods:{
         getHeaderScrollGames(){
             this.$http({
-                methods: 'post',
-                url: '/api/game/getIndexScrollInfo'
+                method: 'post',
+                url: '/game/getIndexScrollInfo'
             }).then((response) => {
                 this.headerScrollGames=response.data;
             })
@@ -108,35 +108,35 @@ export default {
             switch(type){
                 case 'free':
                     this.$http({
-                        methods: 'post',
-                        url: '/api/game/getAllFree'
+                        method: 'post',
+                        url: '/game/getAllFree'
                     }).then((response) => {
                         this.games=response.data;
                     })
                     break;
                 case 'new':
                     this.$http({
-                        methods: 'post',
-                        url: '/api/game/getAllOrderByNew'
+                        method: 'post',
+                        url: '/game/getAllOrderByNew'
                     }).then((response) => {
                         this.games=response.data;
                     })
                     break;
                 case 'all':
                     this.$http({
-                        methods: 'post',
-                        url: '/api/game/getAll'
+                        method: 'post',
+                        url: '/game/getAll'
                     }).then((response) => {
                         this.games=response.data;
                     })
                     break;
                 default:
                     this.$http({
-                        methods: 'post',
+                        method: 'post',
                         params: {
                             type: this.type
                         },
-                        url: '/api/game/getByType'
+                        url: '/game/getByType'
                     }).then((response) => {
                         this.games=response.data;
                     })
@@ -164,19 +164,19 @@ export default {
         },
         getTypeName(){
             this.$http({
-                methods: 'post',
+                method: 'post',
                 params:{
                     id: this.type
                 },
-                url: '/api/type/getById'
+                url: '/type/getById'
             }).then((response) => {
                 this.typeName=response.data.name;
             })
         },
         getGameTypes(){
             this.$http({
-                methods: 'post',
-                url: '/api/type/getAll'
+                method: 'post',
+                url: '/type/getAll'
             }).then((response) => {
                 this.gameTypes=response.data
             })

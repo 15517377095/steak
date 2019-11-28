@@ -152,16 +152,16 @@ export default {
         },
         getHeaderScrollGames(){
             this.$http({
-                methods: 'post',
-                url: '/api/game/getIndexScrollInfo'
+                method: 'post',
+                url: '/game/getIndexScrollInfo'
             }).then((response) => {
                 this.headerScrollGames=response.data;
             })
         },
         getIndexNewGames(){
             this.$http({
-                methods: 'post',
-                url: '/api/game/getIndexNewInfo'
+                method: 'post',
+                url: '/game/getIndexNewInfo'
             }).then((response) => {
                 this.newGames=response.data;
             })

@@ -5,24 +5,34 @@
                 <div class="col-auto offset-xl-1 header-logo anim-2">
                     <img src="../../assets/images/logo.png" />
                 </div>
-                <div @click="toggleFull" class="col-auto ml-auto header-ico cur-p mdui-ripple" title="全屏/取消全屏">
-                    <i class="fas fa-expand-arrows-alt"></i>
+                <div @click="closeTooltip(1);$parent.$parent.loginout()" id="tooltip1" class="col-auto ml-auto header-ico cur-p mdui-ripple" mdui-tooltip="{content: '退出', delay: 400}">
+                    <i class="fas fa-sign-out-alt"></i>
                 </div>
-                <div class="col-auto header-ico cur-p mdui-ripple" title="安全锁定">
+                <div @click="closeTooltip(2);lock()" id="tooltip2" class="col-auto header-ico cur-p mdui-ripple" mdui-tooltip="{content: '安全锁定', delay: 400}">
                     <i class="fas fa-unlock-alt"></i>
                 </div>
-                <div @click="$parent.$parent.loginout" class="col-auto header-ico cur-p mdui-ripple" title="退出">
-                    <i class="fas fa-sign-out-alt"></i>
+                <div @click="closeTooltip(3);toggleFull()" id="tooltip3" class="col-auto header-ico cur-p mdui-ripple" mdui-tooltip="{content: '全屏/取消全屏', delay: 400}">
+                    <i class="fas fa-expand-arrows-alt"></i>
                 </div>
                 <div class="col-0 col-xl-1" />
             </div>
         </div>
         <div class="container-fluid header-nav">
             <div class="row">
-                <div class="col-auto offset-xl-1 nav-item cur-p mdui-ripple">
+                <div class="col-auto offset-xl-1 nav-item cur-p mdui-ripple" mdui-menu="{target: '#menu1'}">
                     <i class="fas fa-gamepad"></i>
                     <span>游戏管理</span>
                 </div>
+
+                <ul class="mdui-menu" id="menu1">
+                    <li class="mdui-menu-item">
+                        <router-link to="/admin/gameManage" class="mdui-ripple">游戏管理</router-link>
+                    </li>
+                    <li class="mdui-menu-item">
+                        <router-link to="/admin/addGame" class="mdui-ripple">添加游戏</router-link>
+                    </li>
+                </ul>
+
                 <div class="col-auto nav-item cur-p mdui-ripple">
                     <i class="fas fa-users"></i>
                     <span>用户管理</span>
@@ -67,7 +77,13 @@ export default {
             }
             this.exitFullscreen();
         },
-        
+        lock(){
+            window.sessionStorage["lockUsername"] = this.$parent.$parent.loginUser.email;
+            this.$router.push("/admin/login");
+        },
+        closeTooltip(id){
+            mdui.Tooltip('#tooltip' + id).close();
+        }
     },
     mounted(){
         this.$parent.$parent.userInterceptor();

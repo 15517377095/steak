@@ -92,9 +92,9 @@ export default {
                 return;
             }
             this.$http({
-                methods: 'post',
+                method: 'post',
                 params: this.loginForm,
-                url: '/api/user/login'
+                url: '/user/login'
             }).then((response) => {
                 if(response.data.permissions == 1){
                     mdui.snackbar({

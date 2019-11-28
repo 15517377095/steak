@@ -1,0 +1,33 @@
+.gameManage{background:#F9F9F9;min-height:100vh;}
+
+.title{color:#354558;font-size:20px;letter-spacing:1px;}
+.nav-root{font-size:13px;color:#354558;font-family:Helvetica Neue,Helvetica,Arial,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei UI,Microsoft YaHei,"\5FAE\8F6F\96C5\9ED1",sans-serif;}
+.nav-ico{font-size:13px;color:rgba(53, 69, 88, 0.7);padding:0 8px 0 14px;}
+.nav-child{font-size:13px;color:rgba(53, 69, 88, 0.7);}
+
+.system-info-box{height:158px;float:left;margin-right:10px;margin-bottom:10px;padding:10px 20px 20px 20px;width:280px;box-shadow:0px 0px 13px 0px rgba(236, 236, 241, 0.44);background:#fff;border-radius:5px;}
+.add-box{height:158px;float:left;margin-right:10px;margin-bottom:10px;padding:10px 20px 20px 20px;width:280px;box-shadow:0px 0px 13px 0px rgba(236, 236, 241, 0.44);background:#fff;border-radius:5px;}
+.add-title{color:#354558;font-size:18px;display:inline-block;line-height:50px;}
+.add-logo, .look-logo{color:#fff;width:42px;height:42px;float:right;display:inline-block;border-radius:100%;text-align:center;line-height:42px;font-size:18px;margin-top:6px;}
+.add-logo{background:#30829b;}
+.look-logo{background:#92309b;}
+.look-logo:hover,.add-logo:hover{color:#fff;font-size:22px;}
+
+.info-title{color:#354558;font-size:18px;display:inline-block;line-height:50px;}
+.info-num{color:#354558;font-size:22px;}
+.info-scoll{line-height:0;font-size:0;display:inline-block;background:#e9ecef;width:100%;height:4px;border-radius:2px;overflow: hidden;}
+.info-scrollinfo{color:#9ca8b3;font-size:13px;}
+.info-scroll-have{height:100%;background:#30419b;display:inline-block;}
+.info-scrollbl{color:#9ca8b3;font-size:13px;float:right;}
+.info-logo{background:#30419b;color:#fff;width:50px;height:50px;display:inline-block;float:right;border-radius:100%;text-align:center;line-height:50px;font-size:22px;margin-top:6px;}
+
+.game-table{margin-bottom:50px;overflow:auto;box-shadow:0px 0px 13px 0px rgba(236, 236, 241, 0.44);background:#fff;border-radius:5px;}
+.table-title{color:#354558;font-size:16px;padding:15px 0 20px 0;}
+.game-table th,.game-table td{padding:20px 15px !important;}
+
+.game-table table{min-width:1200px !important;}
+
+.edit-btn{transition:all 0.2s;background:#30419b;color:#fff;font-size:12px;border-radius:2px;border:0;padding:8px 12px;}
+.edit-btn:hover{background:#233072;}
+.delete-btn{transition:all 0.2s;background:#9b3035;color:#fff;font-size:12px;border-radius:2px;border:0;padding:8px 12px;margin-left:4px;}
+.delete-btn:hover{background:#6e2326;}

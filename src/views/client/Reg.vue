@@ -137,9 +137,9 @@ export default {
                 return;
             }
             this.$http({
-                methods: 'post',
+                method: 'post',
                 params: this.regForm,
-                url: '/api/user/addUser'
+                url: '/user/addUser'
             }).then((response) => {
                 mdui.snackbar({
                     message: '注册成功',
