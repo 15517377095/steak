@@ -74,7 +74,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -324,7 +323,7 @@ export default {
             //图集格式化
             var newImgs="";
             for(let index in this.gameForm.imgs){
-                newImgs += this.gameForm.imgs[index]+";"
+                newImgs += this.gameForm.imgs[index].imgurl+";"
             }
             this.gameForm.imgs = newImgs.substring(0,newImgs.length-1);
             //发送数据
@@ -342,11 +341,19 @@ export default {
             })
         }
     },
+    created(){  // 删除上次因刷新或意外退出滞留的废弃图片
+        this.$http({
+            method: 'post',
+            contentType: false,
+            processData: false,
+            url: '/game/deleteImgsByAutoId'
+        })
+    },
     mounted(){
         this.getTypes();
         editormd.markdownToHTML("test-editormd-view");
     },
-    beforeDestroy(){
+    beforeDestroy(){  // 删除手动退回滞留的废弃图片
         if(!this.addStatus){
             this.$http({
                 method: 'post',

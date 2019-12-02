@@ -12,7 +12,7 @@
                 <div class="col-0 col-xl-1" />
             </div>
             <div class="row mt-4">
-                <div class="col-auto offset-xl-1 anim-2">
+                <div class="col-12 offset-xl-1 anim-2">
                     <div class="system-info-box">
                         <span class="info-title">存储游戏数量</span>
                         <span class="info-logo mdui-ripple">

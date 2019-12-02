@@ -11,7 +11,7 @@
                 <div @click="closeTooltip(2);lock()" id="tooltip2" class="col-auto header-ico cur-p mdui-ripple" mdui-tooltip="{content: '安全锁定', delay: 400}">
                     <i class="fas fa-unlock-alt"></i>
                 </div>
-                <div @click="closeTooltip(3);toggleFull()" id="tooltip3" class="col-auto header-ico cur-p mdui-ripple" mdui-tooltip="{content: '全屏/取消全屏', delay: 400}">
+                <div @click="closeTooltip(3);toggleFull()" id="tooltip3" class="col-auto d-none d-lg-block header-ico cur-p mdui-ripple" mdui-tooltip="{content: '全屏/取消全屏', delay: 400}">
                     <i class="fas fa-expand-arrows-alt"></i>
                 </div>
                 <div class="col-0 col-xl-1" />

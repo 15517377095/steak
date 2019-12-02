@@ -32,6 +32,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 Vue.config.productionTip = false
 
 axios.defaults.baseURL = 'http://101.200.132.176:8080/'
+// axios.defaults.baseURL = 'http://localhost:8088/'
+axios.defaults.withCredentials = true
 
 Vue.prototype.$http = axios;
 
