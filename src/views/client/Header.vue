@@ -218,15 +218,20 @@
 
 <script>
 import mdui from 'mdui/dist/js/mdui.min.js'
+import { mapGetters,mapActions } from 'vuex'
 
 export default {
     data(){
         return{
             navFixedShow: false,
-            gameTypes: [],
+            
         }
     },
-    methods:{
+    computed: {
+        ...mapGetters(['gameTypes'])
+    },
+    methods: {
+        ...mapActions(['getTypes']),
         toggleNavbarItemMore(){
             var item=$(event.target);
             var more=item.find(".navbar_item_more");
@@ -274,24 +279,23 @@ export default {
                 }
             })
         },
-        getGameTypes(){
-            this.$http({
-                method: 'post',
-                url: '/type/getAll'
-            }).then((response) => {
-                this.gameTypes=response.data
-            })
-        },
         clearErrorNavItemMore(){
             addEventListener("click",function(){
                 $(".navbar_item_more").hide();
             })
+        },
+        addMouseTX(){
+            var a_idx = 0;jQuery(document).ready(function($) {$("body").click(function(e) {var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");var $i = $("<span/>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;var x = e.pageX,y = e.pageY;$i.css({"z-index": 100000000,"top": y - 20,"left": x,"position": "absolute","font-weight": "bold","color": "#ff6651"});$("body").append($i);$i.animate({"top": y - 180,"opacity": 0},1500,function() {$i.remove();});});});
         }
+    },
+    created(){
+        this.getTypes();
     },
     mounted(){
         this.addWinScrollEvent();
-        this.getGameTypes();
         this.clearErrorNavItemMore();
+        this.addMouseTX();
     }
 }
 </script>

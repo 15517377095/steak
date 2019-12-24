@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import axios from 'axios'
+import store from './store'
 
 // BootStrap
 import 'bootstrap'
@@ -31,8 +32,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.config.productionTip = false
 
-axios.defaults.baseURL = 'http://101.200.132.176:8080/'
-// axios.defaults.baseURL = 'http://localhost:8088/'
+axios.defaults.baseURL = 'http://6634.top:8082/'
 axios.defaults.withCredentials = true
 
 Vue.prototype.$http = axios;
@@ -42,5 +42,6 @@ Vue.use(ElementUI);
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')
