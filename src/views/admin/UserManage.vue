@@ -61,7 +61,7 @@
                                     <span v-if="game.permissions == 0">普通用户</span>
                                 </td>
                                 <td>
-                                    <button class="edit-btn">修改</button>
+                                    <!-- button class="edit-btn">修改</button -->
                                     <button class="delete-btn" mdui-dialog="{target: '#exampleDialog'}" @click="willDeleteId = game.id">删除</button>
                                 </td>
                             </tr>
