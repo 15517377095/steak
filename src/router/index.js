@@ -9,6 +9,8 @@ import ClientShop from '../views/client/Shop.vue'
 import ClientAbout from '../views/client/About.vue'
 import AdminLogin from '../views/admin/Login.vue'
 import AdminGameManage from '../views/admin/GameManage.vue'
+import AdminUserManage from '../views/admin/UserManage.vue'
+import AdminEditGame from '../views/admin/EditGame.vue'
 import AdminAddGame from '../views/admin/AddGame.vue'
 
 Vue.use(VueRouter)
@@ -68,6 +70,16 @@ const routes = [
     path: '/admin/gameManage',
     name: 'adminGameManage',
     component: AdminGameManage
+  },
+  {
+    path: '/admin/userManage',
+    name: 'adminUserManage',
+    component: AdminUserManage
+  },
+  {
+    path: '/admin/editGame/*',
+    name: 'adminEditGame',
+    component: AdminEditGame
   },
   {
     path: '/admin/addGame',

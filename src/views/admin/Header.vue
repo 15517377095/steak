@@ -33,10 +33,10 @@
                     </li>
                 </ul>
 
-                <div class="col-auto nav-item cur-p mdui-ripple">
+                <router-link to="/admin/userManage" class="col-auto nav-item cur-p mdui-ripple">
                     <i class="fas fa-users"></i>
                     <span>用户管理</span>
-                </div>
+                </router-link>
             </div>
         </div>
     </div>

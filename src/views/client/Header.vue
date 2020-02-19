@@ -295,7 +295,7 @@ export default {
     mounted(){
         this.addWinScrollEvent();
         this.clearErrorNavItemMore();
-        this.addMouseTX();
+        // this.addMouseTX();
     }
 }
 </script>
