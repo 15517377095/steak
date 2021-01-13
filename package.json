@@ -13,7 +13,7 @@
     "editor.md": "^1.5.0",
     "element-ui": "^2.13.0",
     "jquery": "^3.4.1",
-    "jquery-validation": "^1.19.1",
+    "jquery-validation": "^1.19.3",
     "mdui": "^0.4.3",
     "muse-ui": "^3.0.2",
     "popper.js": "^1.16.0",
